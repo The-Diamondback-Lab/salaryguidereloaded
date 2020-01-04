@@ -7,11 +7,11 @@
     "dev": "rimraf ./build && cross-env NODE_ENV=development && preact watch --template ./src/public/index.html -p 3000",
     "build": "rimraf ./build && cross-env NODE_ENV=production && preact build --clean -p --no-prerender --template ./src/public/index.html",
     "now-build": "npm run build",
-    "stage": "clear && npm test && npm run build",
-    "stage-now": "clear && npm run stage && now-we-test serve --port=5000",
+    "stage": "npm test && npm run build",
+    "stage-now": "npm run stage && serve --port=5000",
     "stage-firebase": "npm run stage && firebase serve --only hosting:production",
     "deploy": "firebase deploy --only hosting:production",
-    "start": "clear && npm run stage-firebase"
+    "start": "npm run stage-firebase"
   },
   "dependencies": {
     "@babel/core": "^7.7.7",
