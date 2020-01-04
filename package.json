@@ -14,24 +14,25 @@
     "start": "clear && npm run stage-firebase"
   },
   "dependencies": {
+    "@babel/core": "^7.7.7",
+    "@babel/plugin-proposal-class-properties": "^7.7.4",
+    "@babel/plugin-proposal-export-default-from": "^7.7.4",
+    "@babel/plugin-proposal-export-namespace-from": "^7.7.4",
+    "@babel/plugin-proposal-throw-expressions": "^7.7.4",
     "@feathersjs/errors": "^3.3.6",
     "axios": "^0.18.0",
+    "html-webpack-plugin": "^3.2.0",
     "jquery": "^3.4.0",
-    "now": "^15.0.8",
+    "node-sass": "^4.13.0",
     "preact": "10.0.0-alpha.3",
     "preact-cli-plugin-env-vars": "^1.2.1",
     "preact-router": "3.0.0",
     "react-ga": "^2.5.7",
+    "sass-loader": "^7.1.0",
     "serve": "^11.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.3.4",
-    "@babel/plugin-proposal-class-properties": "^7.4.0",
-    "@babel/plugin-proposal-export-default-from": "^7.2.0",
-    "@babel/plugin-proposal-export-namespace-from": "^7.2.0",
-    "@babel/plugin-proposal-throw-expressions": "^7.2.0",
     "babel-eslint": "^11.0.0-beta.0",
-    "babel-jest": "^24.7.1",
     "eslint": "^5.16.0",
     "eslint-config-standard": "^12.0.0",
     "eslint-config-standard-preact": "^1.1.6",
@@ -41,13 +42,9 @@
     "eslint-plugin-node": "^8.0.1",
     "eslint-plugin-promise": "^4.1.1",
     "eslint-plugin-standard": "^4.0.0",
-    "html-webpack-plugin": "^3.2.0",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^24.7.1",
-    "node-sass": "4.11.0",
     "preact-cli": "3.0.0-next.19",
-    "preact-render-spy": "^1.2.1",
-    "sass-loader": "7.1.0"
+    "preact-render-spy": "^1.2.1"
   },
   "repository": {
     "type": "git",
