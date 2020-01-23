@@ -6,10 +6,7 @@
   "scripts": {
     "dev": "rimraf ./build && cross-env NODE_ENV=development && preact watch --template ./src/public/index.html -p 3000",
     "build": "rimraf ./build && cross-env NODE_ENV=production && preact build --clean --prerender --template ./src/public/index.html",
-    "stage": "npm test && npm run build",
-    "stage-firebase": "npm run stage && firebase serve --only hosting:production",
-    "deploy": "firebase deploy --only hosting:production",
-    "start": "npm run stage-firebase"
+    "stage": "npm test && npm run build"
   },
   "dependencies": {
     "@babel/core": "^7.7.7",
