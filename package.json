@@ -8,7 +8,7 @@
     "predev": "npm run clean",
     "dev": "cross-env NODE_ENV=development preact watch --template ./src/public/index.html -p 3000",
     "prebuild": "npm run clean",
-    "build": "cross-env NODE_ENV=production preact build --clean --prerender --template ./src/public/index.html"
+    "build": "cross-env NODE_ENV=production preact build --prerender --template ./src/public/index.html"
   },
   "dependencies": {
     "@babel/core": "^7.7.7",
