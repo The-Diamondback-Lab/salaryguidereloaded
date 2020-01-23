@@ -4,8 +4,11 @@
   "main": "./index.html",
   "description": "Every year, The Diamondback publishes Salary Guide, which contains the salaries of University employees in an easily digestible format. The current templatewas created in 2017, and was also reused for the 2018 edition of Salary Guide. This year, our goal is to revamp the design and features of the site, most notably adding a filter option to the site that'll allow the user to view previous salary data without navigating to a different site.",
   "scripts": {
-    "dev": "rimraf ./build && cross-env NODE_ENV=development && preact watch --template ./src/public/index.html -p 3000",
-    "build": "rimraf ./build && cross-env NODE_ENV=production && preact build --clean --prerender --template ./src/public/index.html"
+    "clean": "rimraf ./build",
+    "predev": "npm run clean",
+    "dev": "cross-env NODE_ENV=development preact watch --template ./src/public/index.html -p 3000",
+    "prebuild": "npm run clean",
+    "build": "cross-env NODE_ENV=production preact build --clean --prerender --template ./src/public/index.html"
   },
   "dependencies": {
     "@babel/core": "^7.7.7",
