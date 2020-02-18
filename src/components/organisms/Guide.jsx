@@ -233,35 +233,33 @@ export default class Guide extends Component {
   }
 
   handle_search = () => {
-    let term = $("#search-box").val().trim()
-    this.handle_params("search", term)
+    let term = $('#search-box').val().trim()
+    this.handle_params('search', term)
   }
 
   handle_key_press = e => {
     if (e.keyCode === 37) {
       this.handle_button('previous')
-    }
-    else if (e.keyCode === 39) {
+    } else if (e.keyCode === 39) {
       this.handle_button('next')
-    }
-    else if (e.keyCode == 13) {
+    } else if (e.keyCode === 13) {
       this.handle_search()
     }
   }
 
   disable_inputs = () => {
-    console.log("disabling inputs")
-    $("select").prop('disabled', true)
-    $("#btn-back").prop('disabled', true)
-    $("#btn-next").prop('disabled', true)
-    $("input").prop('disabled', true)
+    console.log('disabling inputs')
+    $('select').prop('disabled', true)
+    $('#btn-back').prop('disabled', true)
+    $('#btn-next').prop('disabled', true)
+    $('input').prop('disabled', true)
   }
-  
+
   enable_inputs = () => {
-    console.log("enabling inputs")
-    $("select").prop('disabled', false)
-    $("#btn-back").prop('disabled', false)
-    $("#btn-next").prop('disabled', false)
-    $("input").prop('disabled', false)
+    console.log('enabling inputs')
+    $('select').prop('disabled', false)
+    $('#btn-back').prop('disabled', false)
+    $('#btn-next').prop('disabled', false)
+    $('input').prop('disabled', false)
   }
 }
