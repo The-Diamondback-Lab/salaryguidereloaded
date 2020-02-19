@@ -43,8 +43,7 @@ export default class Guide extends Component {
     loading: true,
     params: {
       search: '', sortby: 'salary', order: 'desc', page: '1'
-    },
-    url: '/year/2019'
+    }
   }
 
   /**
@@ -139,8 +138,15 @@ export default class Guide extends Component {
     try {
       console.group('Getting Salary Guide data...')
 
+      // Get all years and select the most recent one (aka largest)
+      let yearReq = await request({ url: '/years', method: 'get' })
+      let yearNums = yearReq.data.data.map(yearString => Number.parseInt(yearString))
+      yearNums.sort()
+      let mostRecentYear = yearNums[yearNums.length - 1]
+
       // Get table data based on current state
-      const { url, params } = this.state
+      const { params } = this.state
+      let url = `/year/${mostRecentYear}`
       let req = await request({ url: url, params: params, method: 'get' })
 
       console.info('Retreived Salary Guide data ->', req.data)
