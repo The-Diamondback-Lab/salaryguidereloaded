@@ -146,7 +146,9 @@ export default class Guide extends Component {
 
       // Get table data based on current state
       const { params } = this.state
-      let url = `/year/${mostRecentYear}`
+      // Base url is either most recent year or whatever the state's url is
+      // State's url can be modified from search parameters/filters
+      let url = this.state.url || `/year/${mostRecentYear}`
       let req = await request({ url: url, params: params, method: 'get' })
 
       console.info('Retreived Salary Guide data ->', req.data)
@@ -209,6 +211,8 @@ export default class Guide extends Component {
     if (type !== 'page') {
       params_copy['page'] = '1'
     }
+
+    console.log(params_copy)
 
     this.setState(
       state => ({ ...state, params: params_copy }),
