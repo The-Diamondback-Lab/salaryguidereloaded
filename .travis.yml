@@ -5,14 +5,14 @@ branches:
   only:
   - master
 deploy:
-  provider: elasticbeanstalk
+  provider: s3
   access_key_id: ${AWS_ACCESS_KEY_ID}
   secret_access_key: ${AWS_SECRET_ACCESS_KEY}
-  region: us-east-1
-  app: dbknews-elastic-beanstalk
-  env: dbknews-salaryguide
-  bucket_name: salaryguide.dbknews.com
+  bucket: salaryguide.dbknews.com
+  acl: public_read
+  local_dir: build
+  skip_cleanup: true
   on:
     branch: master
 after_deploy:
-  - echo "Application Deployed!"
+  - echo "Static site deployed"

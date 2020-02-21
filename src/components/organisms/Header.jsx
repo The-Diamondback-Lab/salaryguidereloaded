@@ -10,7 +10,6 @@ import { Link } from '../atoms'
 import { HeaderNavigation } from '../molecules'
 import Filter from './Filter.jsx'
 
-
 /**
  * @file Preact component representing the header.
  * @author Lexus Drumgold <lex@lexusdrumgold.design>

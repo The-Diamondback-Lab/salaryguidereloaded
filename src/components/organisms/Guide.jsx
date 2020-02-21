@@ -43,8 +43,7 @@ export default class Guide extends Component {
     loading: true,
     params: {
       search: '', sortby: 'salary', order: 'desc', page: '1'
-    },
-    url: '/year/2019'
+    }
   }
 
   /**
@@ -139,8 +138,17 @@ export default class Guide extends Component {
     try {
       console.group('Getting Salary Guide data...')
 
+      // Get all years and select the most recent one (aka largest)
+      let yearReq = await request({ url: '/years', method: 'get' })
+      let yearNums = yearReq.data.data.map(yearString => Number.parseInt(yearString))
+      yearNums.sort()
+      let mostRecentYear = yearNums[yearNums.length - 1]
+
       // Get table data based on current state
-      const { url, params } = this.state
+      const { params } = this.state
+      // Base url is either most recent year or whatever the state's url is
+      // State's url can be modified from search parameters/filters
+      let url = this.state.url || `/year/${mostRecentYear}`
       let req = await request({ url: url, params: params, method: 'get' })
 
       console.info('Retreived Salary Guide data ->', req.data)
@@ -204,6 +212,8 @@ export default class Guide extends Component {
       params_copy['page'] = '1'
     }
 
+    console.log(params_copy)
+
     this.setState(
       state => ({ ...state, params: params_copy }),
       () => {
@@ -233,35 +243,33 @@ export default class Guide extends Component {
   }
 
   handle_search = () => {
-    let term = $("#search-box").val().trim()
-    this.handle_params("search", term)
+    let term = $('#search-box').val().trim()
+    this.handle_params('search', term)
   }
 
   handle_key_press = e => {
     if (e.keyCode === 37) {
       this.handle_button('previous')
-    }
-    else if (e.keyCode === 39) {
+    } else if (e.keyCode === 39) {
       this.handle_button('next')
-    }
-    else if (e.keyCode == 13) {
+    } else if (e.keyCode === 13) {
       this.handle_search()
     }
   }
 
   disable_inputs = () => {
-    console.log("disabling inputs")
-    $("select").prop('disabled', true)
-    $("#btn-back").prop('disabled', true)
-    $("#btn-next").prop('disabled', true)
-    $("input").prop('disabled', true)
+    console.log('disabling inputs')
+    $('select').prop('disabled', true)
+    $('#btn-back').prop('disabled', true)
+    $('#btn-next').prop('disabled', true)
+    $('input').prop('disabled', true)
   }
-  
+
   enable_inputs = () => {
-    console.log("enabling inputs")
-    $("select").prop('disabled', false)
-    $("#btn-back").prop('disabled', false)
-    $("#btn-next").prop('disabled', false)
-    $("input").prop('disabled', false)
+    console.log('enabling inputs')
+    $('select').prop('disabled', false)
+    $('#btn-back').prop('disabled', false)
+    $('#btn-next').prop('disabled', false)
+    $('input').prop('disabled', false)
   }
 }
