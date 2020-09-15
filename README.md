@@ -48,3 +48,8 @@ See [Guide to Contributing](CONTRIBUTING.md).
 - [Adobe XD](https://www.adobe.com/products/xd.html) - Wireframe, prototype, and style guide
 - [Preact](https://preactjs.com/) - A smaller React alternative for building user interfaces
 - [Sass](https://sass-lang.com/) - CSS extension
+
+### Design
+
+The `design/` directory has been removed, but can be found in the git history. If you want
+an easier place to find it, visit the [original repo](https://github.com/lexusdrumgold/salaryguidereloaded)
